@@ -1,36 +1,108 @@
-Q1: Import datasets from the Data folder from CSV.
+Part 1: General Python
 
-Q2: How many unique products are sold?
+Q1: Compute Product of two non-negative numbers without arithmetic operator. You are only allowed to use: bitwise operators <<, >>, |, &, ~, ^.
 
-Q3: List the unique products sold.
+Q2: Given a string check if its characters can be permuted into a palindrome, a palindrome is word that is the same forward and backward, for example “aabaa”
 
-Q4: List the quantity sold for each product and product id (No Multilevel indexing).
+Q3: Write a function to partition a list around a given value x, such that all numbers smaller than x comes before x and all numbers greater than x comes after x.  Ex. [ 3, 5, 1, 10, 4, 6, 9], x = 5 ==> [3, 1, 4, 5, 6, 9, 10]
 
-Q5: For each product, give the total Quantity sold and the revenue earned from the total sales (price x quantity).
+Q4: Convert a real number between 0 and 1 to a binary string, if you can’t represent the number in at most 32 characters print “ERROR”
 
-Q6: List of quantity sold against each product and against each store and sort by store and product.
+Q5: Write a method that returns all subset of a set of numbers, don’t use builtin functions.
 
-Q7: List of quantity sold against each Store with total turnover of the store.
+Q6: A magic index in an array A is an index x such that A[x] = x, given an array A find a magic index.
 
-Q8: List the products which are not sold.
+Q7: Given two sorted arrays  A and B, merge into a single array: A[3, 7, 10], B=[1, 2, 4, 5, 6, 9, 11] ==> [1,2,3,5,6,7,9,10,11]
 
-Q9: List of customers who have not purchased any product.
+Q8: Schedule Tasks to minimise the waiting time. Given a list of service time for tasks, find the best scheduling to minimise the waiting time. For example given service time [2, 5, 1, 3], if we schedule them in the given order the waiting time = 0 + (2) + (2 +5) + (2 +5 +1) = 17, if we schedule them in order of decreasing service, the waiting time = 0 + (5) + (5+3) + (5+3 +2) = 23. The best scheduling in this case is [1, 2, 3, 5]
 
-Q10: Assign a 'birthday_this_year' column to the customer table where each customer has a birthday associated with them in the yyyy-mm-dd format.
+Q9: Write function integers_in_brackets that finds from a given string all integers that are enclosed in brackets. Example run: integers_in_brackets("  afd [asd] [12 ] [a34]  [ -43 ]tt [+12]xxx") returns [12, -43, 12]. So there can be whitespace between the number and the brackets, but no other character besides those that make up the integer. Use regular expressions to do this. 
+
+Q10: Create a function called summary that gets a list of filenames as a parameter. The input files should contain a floating point number on each line of the file. Make your function read these numbers and then return a triple containing the sum, average, and standard deviation of these numbers for the file.  https://en.wikipedia.org/wiki/Standard_deviation#Sample_standard_deviation_of_metabolic_rate_of_northern_fulmars  The main function should call the function summary for each filename in the list sys.argv[1:] of command line parameters. (Skip sys.argv[0] since it contains the name of the current program.)
+	
+	Example of usage from the command line: python3 src/summary.py src/example.txt src/example2.txt
+	Print floating point numbers using six decimals precision. The output should look like this:
+	File: src/example.txt Sum: 51.400000 Average: 10.280000 Stddev: 8.904606
+	File: src/example2.txt Sum: 5446.200000 Average: 1815.400000 Stddev: 3124.294045
+
+Part 2.
+If some line doesn’t represent a number, you can just ignore that line. You can achieve this with the try-except block. An example of recovering from an exceptional situation:
+try:
+		x = float(line)           # The float constructor raises ValueError exception if conversion is no possible
+except ValueError:
+		# Statements in here are executed when the above conversion fails
+
+Q11: Write a function extract_numbers that gets a string as a parameter. It should return a list of numbers that can be both ints and floats. Split the string to words at whitespace using the split() method. Then iterate through each word, and initially try to convert to an int. If unsuccesful, then try to convert to a float. If not a number then skip the word.
+	Example run: print(extract_numbers("abd 123 1.2 test 13.2 -1")) will return [123, 1.2, 13.2, -1] 
+numpy & Pandas 
+
+Q12: Write function vector_lengths that gets a two dimensional array of shape (n,m) as a parameter. Each row in this array corresponds to a vector. The function should return an array of shape (n,), that has the length of each vector in the input. The length is defined by the usual Euclidean norm. Don’t use loops at all in your solution. Instead use vectorized operations. You must use at least the np.sum and the np.sqrt functions. You can’t use the function scipy.linalg.norm. Test your function in the main function.
+
+Q13: Write function multiplication_table that gets a positive integer n as parameter. The function should return an array with shape (n,n). The element at index (i,j) should be i*j. Don’t use for loops! In your solution, rely on broadcasting, the np.arange function, reshaping and vectorized operators. Example of usage:
+print(multiplication_table(4))
+[[0 0 0 0]
+ [0 1 2 3]
+ [0 2 4 6]
+ [0 3 6 9]]
+
+
+Q14: Load the iris dataset, https://gist.github.com/netj/8836201, using pd.read_csv(). The four columns of the returned array correspond to
+sepal length (cm)
+sepal width (cm)
+petal length (cm)
+petal width (cm)
+	Part 1. What is the Pearson correlation between the variables sepal length and petal length. Compute this using the scipy.stats.pearsonr function. It returns a 	tuple whose first element is the correlation. Write a function lengths that loads the data and returns the correlation.
+
+	Part 2. What are the correlations between all the variables. Write a function correlations that returns an array of shape (4,4) containing the correlations. Use 	the function np.corrcoef. Which pair of variables is the most highly correlated?
+
+	Note the input formats of both functions pearsonr and corrcoef.
+
+
+Q15: Make function powers_of_series that takes a Series and a positive integer k as parameters and returns a DataFrame. The resulting DataFrame should have the same index as the input Series. The first column of the dataFrame should be the input Series, the second column should contain the Series raised to power of two. The third column should contain the Series raised to the power of three, and so on until (and including) power of k. The columns should have indices from 1 to k.
+	The values should be numbers, but the index can have any type. Test your function from the main function. Example of usage:
+	s = pd.Series([1,2,3,4], index=list("abcd"))
+	print(powers_of_series(s, 3))
+	Should print:
+	   1   2   3
+	a  1   1   1
+	b  2   4   8
+	c  3   9  27
+
+Part 2: Pandas Questions
+
+Q16: Import datasets from the Data folder from CSV.
+
+Q17: How many unique products are sold?
+
+Q18: List the unique products sold.
+
+Q19: List the quantity sold for each product and product id (No Multilevel indexing).
+
+Q20: For each product, give the total Quantity sold and the revenue earned from the total sales (price x quantity).
+
+Q21: List of quantity sold against each product and against each store and sort by store and product.
+
+Q22: List of quantity sold against each Store with total turnover of the store.
+
+Q23: List the products which are not sold.
+
+Q24: List of customers who have not purchased any product.
+
+Q25: Assign a 'birthday_this_year' column to the customer table where each customer has a birthday associated with them in the yyyy-mm-dd format.
 Let c_id = 1 have birthday '2020-01-01', then let the next customer c_id = 2 have a birthday 1 days later than that the birthday of c_id = 1.
 Continue in this way such that customer c_id = 3 has their birthday 2 days later than the birthday of c_id = 2 and so on.
 Finally, customer c_id = 9 will have their birthday 8 days later than the birthday of c_id = 8.
 
-Q11: Make a dataframe for the new customer 
+Q26: Make a dataframe for the new customer 
 pd.DataFrame({'c_id': [10, 11, 12, 13], 'Customer': ['James', 'Bill', 'Susie', 'Emma'], 'birthday_this_year': ['2020-07-28', '2020-04-05', '2020-11-25', '2020-06-14']})
 and union this dataframe with the current customer dataframe. Ensure all column types are the same. Sort customers by c_id in ascending order and reset the index.
 
-Q12: Add an indicator column in the sales table called 'qty_multiple_2' where 1 indicates if the qty is a multiple of 2 and 0 otherwise.
+Q27: Add an indicator column in the sales table called 'qty_multiple_2' where 1 indicates if the qty is a multiple of 2 and 0 otherwise.
 
-Q13: Create a column called Age in the new customers table where each customer has ages [24, 29, 42, 35, 32, 28, 19, 38, 27, 29, 34, 25].
+Q28: Create a column called Age in the new customers table where each customer has ages [24, 29, 42, 35, 32, 28, 19, 38, 27, 29, 34, 25].
 
-Q14: Compute the date of birth for each customer.
+Q29: Compute the date of birth for each customer.
 
-Q15: In the most recent customer table, assign a column which tells us which astrology star sign each customer is.
+Q30: In the most recent customer table, assign a column which tells us which astrology star sign each customer is.
 
-Q16: Consider the rectangles dataset, read it in, compute the area of each rectangle and save the file to CSV called 'rectangles_new'.
+Q31: Consider the rectangles dataset, read it in, compute the area of each rectangle and save the file to CSV called 'rectangles_new'.
