@@ -22,7 +22,7 @@ We will grade you on criteria such as:
 
 ## Prizes
 
-For those who perform well on this competition, you will be awarded programming courses from the excellent [Learn Enough](https://www.learnenough.com/) website so you can continue your journey into learning to program. 
+For those who perform well on this competition, you will be awarded programming courses from the excellent [Learn Enough](https://www.learnenough.com/) website so you can continue your journey into programming.
 
 1. First Place - All access to all courses on the website.
 2. Second place - Access to one of the bundles on the website (you have 3 bundles to select from)
