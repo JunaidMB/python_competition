@@ -1,0 +1,36 @@
+Q1: Import datasets from the Data folder from CSV.
+
+Q2: How many unique products are sold?
+
+Q3: List the unique products sold.
+
+Q4: List the quantity sold for each product and product id (No Multilevel indexing).
+
+Q5: For each product, give the total Quantity sold and the revenue earned from the total sales (price x quantity).
+
+Q6: List of quantity sold against each product and against each store and sort by store and product.
+
+Q7: List of quantity sold against each Store with total turnover of the store.
+
+Q8: List the products which are not sold.
+
+Q9: List of customers who have not purchased any product.
+
+Q10: Assign a 'birthday_this_year' column to the customer table where each customer has a birthday associated with them in the yyyy-mm-dd format.
+Let c_id = 1 have birthday '2020-01-01', then let the next customer c_id = 2 have a birthday 1 days later than that the birthday of c_id = 1.
+Continue in this way such that customer c_id = 3 has their birthday 2 days later than the birthday of c_id = 2 and so on.
+Finally, customer c_id = 9 will have their birthday 8 days later than the birthday of c_id = 8.
+
+Q11: Make a dataframe for the new customer 
+pd.DataFrame({'c_id': [10, 11, 12, 13], 'Customer': ['James', 'Bill', 'Susie', 'Emma'], 'birthday_this_year': ['2020-07-28', '2020-04-05', '2020-11-25', '2020-06-14']})
+and union this dataframe with the current customer dataframe. Ensure all column types are the same. Sort customers by c_id in ascending order and reset the index.
+
+Q12: Add an indicator column in the sales table called 'qty_multiple_2' where 1 indicates if the qty is a multiple of 2 and 0 otherwise.
+
+Q13: Create a column called Age in the new customers table where each customer has ages [24, 29, 42, 35, 32, 28, 19, 38, 27, 29, 34, 25].
+
+Q14: Compute the date of birth for each customer.
+
+Q15: In the most recent customer table, assign a column which tells us which astrology star sign each customer is.
+
+Q16: Consider the rectangles dataset, read it in, compute the area of each rectangle and save the file to CSV called 'rectangles_new'.
