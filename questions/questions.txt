@@ -25,11 +25,11 @@ Q10: Create a function called summary that gets a list of filenames as a param
 	File: src/example.txt Sum: 51.400000 Average: 10.280000 Stddev: 8.904606
 	File: src/example2.txt Sum: 5446.200000 Average: 1815.400000 Stddev: 3124.294045
 
-Part 2.
-If some line doesn’t represent a number, you can just ignore that line. You can achieve this with the try-except block. An example of recovering from an exceptional situation:
-try:
-		x = float(line)           # The float constructor raises ValueError exception if conversion is no possible
-except ValueError:
+  Part 2.
+  If some line doesn’t represent a number, you can just ignore that line. You can achieve this with the try-except block. An example of recovering from an exceptional situation:
+    try:
+            x = float(line)           # The float constructor raises ValueError exception if conversion is no possible
+    except ValueError:
 		# Statements in here are executed when the above conversion fails
 
 Q11: Write a function extract_numbers that gets a string as a parameter. It should return a list of numbers that can be both ints and floats. Split the string to words at whitespace using the split() method. Then iterate through each word, and initially try to convert to an int. If unsuccesful, then try to convert to a float. If not a number then skip the word.
@@ -106,3 +106,6 @@ Q29: Compute the date of birth for each customer.
 Q30: In the most recent customer table, assign a column which tells us which astrology star sign each customer is.
 
 Q31: Consider the rectangles dataset, read it in, compute the area of each rectangle and save the file to CSV called 'rectangles_new'.
+
+Ref.
+https://csmastersuh.github.io/data_analysis_with_python_spring_2020/index.html
