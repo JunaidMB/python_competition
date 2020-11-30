@@ -1,5 +1,5 @@
 Part 1: General Python
-
+Please try to write all your answers as functions.
 Q1: Compute Product of two non-negative numbers without arithmetic operator. You are only allowed to use: bitwise operators <<, >>, |, &, ~, ^.
 
 Q2: Given a string check if its characters can be permuted into a palindrome, a palindrome is word that is the same forward and backward, for example “aabaa”
@@ -10,7 +10,7 @@ Q4: Convert a real number between 0 and 1 to a binary string, if you can’t rep
 
 Q5: Write a method that returns all subset of a set of numbers, don’t use builtin functions.
 
-Q6: A magic index in an array A is an index x such that A[x] = x, given an array A find a magic index.
+Q6: A magic index in an array A is an index x such that A[x] = x, given a SORTED array A find a magic index.
 
 Q7: Given two sorted arrays  A and B, merge into a single array: A[3, 7, 10], B=[1, 2, 4, 5, 6, 9, 11] ==> [1,2,3,5,6,7,9,10,11]
 
